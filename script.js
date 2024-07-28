@@ -29,3 +29,4 @@ while (true) {
     alert("Invaild input. Please enter a valid number.");
   }
 }
+
