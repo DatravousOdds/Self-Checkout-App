@@ -1,5 +1,6 @@
 const taxRate = 0.055;
 const tax = 0.00;
+let subTotal = 0.00;
 const total = 0.00;
 
 let item1 = 0.00;
@@ -7,26 +8,18 @@ let item2 = 0.00;
 let item3 = 0.00;
 
 
+let isValidInput = true;
 
-while (true) {
-  item1 = prompt("Enter the price of item 1: ");
-  if (!isNaN(item1) && item1.trim() !== "") {
-    item1 = parseInt(item1);
-    console.log(`${item1} was converted to ${typeof item1}`);
+while (isValidInput) {
+  item1 = parseFloat(prompt("Enter price for item 1: "));
+  item2 = parseFloat(prompt("Enter price for item 2: "));
+  item3 = parseFloat(prompt("Enter price for item 3: "));
+  if (!isNaN(item1) > 0 && !isNaN(item2) > 0 && !isNaN(item3) > 0) {
+    subTotal += item1 + item2 + item3;
+    alert(subTotal);
+    isValidInput = false;
   } else {
-    alert("Invalid input. Please enter a valid number for item 1.");
+    alert("Invalid input. Please enter a valid number.");
   }
-  if (isNaN(item2) && item2.trim() !== "") {
-    item2 = parseInt(item2);
-    console.log(`${item2} was converted to ${typeof item2}`);
-  } else {
-    alert("Invaild input. Please enter a valid number.");
-  }
-  if (isNaN(item3) && item3.trim() !== "") {
-    item3 = parseInt(item3);
-    console.log(`${item2} was converted to ${typeof item3}`);
-  } else {
-    alert("Invaild input. Please enter a valid number.");
-  }
+
 }
-
