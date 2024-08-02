@@ -8,19 +8,32 @@ let input = ""
 let quanitity = 0;
 
 
-while (input !== "stop") {
+while (true) {
   input = prompt("Enter the price of item " + itemCounter + " or Q = exit:");
   quanitity = prompt("Enter the quanitity of item " + itemCounter + " or Q = exit:");
 
   if (input === "Q" || quanitity === "Q") {
     break;
   } else {
+    if (isNaN(input) || isNaN(quanitity)) {
+      alert("Invalid input. Please enter a valid number.");
+      continue;
+    }
+
+    // convert into numerical data
+    input = parseFloat(input);
+    quanitity = parseFloat(quanitity);
+
     // add one to the counter
     itemCounter++;
+
+    // calculate the subtotal
     subTotal += input * quanitity;
-    // compute tax
+
+    // calculate tax
     tax = subTotal * taxRate;
-    // compute total
+
+    // calculate total
     total = subTotal + tax;
 
   }
